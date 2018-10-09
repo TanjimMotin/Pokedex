@@ -1,133 +1,52 @@
-var array = [152, 172, 182 ]
-var counter = 0;
-var left = document.getElementById('left')
-var right = document.getElementById('right')
-var mainImage = document.querySelector(".main-image")
-var hp = document.querySelector(".hp")
-var defence = document.querySelector(".defence")
+var oniSprite = document.querySelector('#onisprite');
+var pokeName = document.querySelector('#pokename');
+var pokeHP = document.querySelector('#pokehp');
+var pokeAttack = document.querySelector('#pokeattack');
+var pokeDefense = document.querySelector('#pokedefense');
+var pokeAbilities = document.querySelector('#pokeabilities');
+
+var oniPoke1 = document.getElementById('onipoke1');
+var oniPoke2 = document.getElementById('onipoke2');
+var oniPoke3 = document.getElementById('onipoke3');
 
 
 
 
-	$.ajax({url: " https://fizal.me/pokeapi/api/" + array[0] + ".json",
-		data: {},
-		dataType: "json",
-		success:function(response){
-			threeAbility(response)
+oniPoke1.addEventListener('click', function() {threePokemon(152)})
 
-			document.querySelector(".hp").innerHTML = 'hp :'+response.stats[5].base_stat
-			document.querySelector(".attack").innerHTML = 'attack : ' +response.stats[4].base_stat
-			document.querySelector(".defence").innerHTML = 'defence : ' + response.stats[3].base_stat
-		}
-	})
+oniPoke2.addEventListener('click', function() {threePokemon(172)})
 
-right.addEventListener('click', function(){	
+oniPoke3.addEventListener('click', function() {threePokemon(182)})
 
-	counter += 1;
-	if(counter > 2){
-		counter = 0;
-	}
-	$.ajax({url: " https://fizal.me/pokeapi/api/" + array[counter] + ".json",
-		data: {},
-		dataType: "json",
-		success:function(response){
-			threeAbility(response)
 
-			document.querySelector(".hp").innerHTML = 'hp :'+response.stats[5].base_stat
-			document.querySelector(".attack").innerHTML = 'attack : ' +response.stats[4].base_stat
-			document.querySelector(".defence").innerHTML ='defence : ' + response.stats[3].base_stat
-		}
-	})
-})
+function threePokemon(idnum) {
+  $.ajax({url:"https://fizal.me/pokeapi/api/" + idnum + ".json",
+    success: function(response){
+      oniSprite.style.backgroundImage = "url(" + response.sprites.front_default; + ")";
+    
+      pokeName.innerText = "Name: " + response.name ;
+      pokeHP.innerText = "HP: " + response.stats[5].base_stat;
+      pokeAttack.innerText = "Attack: " + response.stats[4].base_stat;
+      pokeDefense.innerText = "Defense: " + response.stats[3].base_stat;
 
-left.addEventListener('click', function(){	
+      /*var abil = "";
 
-	counter -= 1;
-	if(counter < 0){
-		counter = array.length-1;
-	}
-	$.ajax({url: " https://fizal.me/pokeapi/api/" + array[counter] + ".json",
-		data: {},
-		dataType: "json",
-		success:function(response){
-			threeAbility(response)
+      for(let i = 0; i < response.abilities.length; i++) {
+        if(i == response.abilities.length-1) {
+          abil += (response.abilities[i].ability.name  + ".")
+        }
+        else {
+          abil += (response.abilities[i].ability.name  + ", ");
+        }
+      }
 
-			document.querySelector(".hp").innerHTML = 'hp :'+ response.stats[5].base_stat
-			document.querySelector(".attack").innerHTML = 'attack : ' +response.stats[4].base_stat
-			document.querySelector(".defence").innerHTML = 'defence  :' +response.stats[3].base_stat
-		}
-	})
-})
-
-class Pokemon{
-	constructor(url, name){
-		this.url = url;
-		this.name = name;
-	}
+      pokeAbilities.innerText = "Abilities: " + abil;*/
+    }
+  })
 }
-
-class Trainer {
-
-	all(){
-
-	}
-}
-
-
-function threeAbility(pokii){
-	a = new Pokemon(pokii.sprites.front_default, pokii.name)
-	format(a)
-}
-
-
-function format(pok){
-			mainImage.style.backgroundImage = "url(" + pok.url+ ")"
-			mainImage.style.backgroundSize = "100% 100%"
-			mainImage.style.border = '2px solid';
-			mainImage.style.width = '300px'
-			mainImage.style.height = '300px'
-			mainImage.style.margin = '20px auto'
-			document.querySelector(".name").innerHTML = pok.name;
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+window.addEventListener('load', function() {
+  (threePokemon(152));
+});
 
 
 

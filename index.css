@@ -1,26 +1,118 @@
-.arrows {
-  width: 50%;
-  height: 100px;
-  margin: 0 auto;
-  /*border: 2px solid;*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body{
+  background-image: url(background.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
-#left, #right {
-  display: inline-block;
-  /*border: 1px solid;*/
+.wrapper {
+
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+/*
+  grid-template-rows: 0.2fr 1fr 1fr;*/
+  grid-template-columns: 1fr 1fr  1fr ;
+}
+
+.nav {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  border: 5px solid black;
+  background-color: red;
+}
+
+.trainersec {
+   grid-column-start:1;
+  grid-column-end:2;
+/*  border: 1px solid gray;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.column div {
+ /* border: 1px solid none;*/
+}
+
+.leftcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trainername {
+  height: 65px;
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: black;
+  font-weight: bold;
+/*  border: 1px solid ;*/
+  border-radius: 30%;
+  color: red;
+}
+
+.trainerpoke {
+  height: 50px;
   width: 100px;
-  height: 100px;
-  cursor: pointer;    
+  display: flex;
+  color: red;
+  margin: 50px;
+  border-radius: 30%;
+  justify-content: center;
+  align-items: center;
+ /* border: 1px solid black;*/
+  background-color: black;
+  cursor: pointer;
 }
 
-#right {
-  float: right;
-  background-image: url("img/right.png");
-  background-size: 100% 100%;
+.onisprite {
+  height: 250px;
+  width: 250px;
+  /*border: 10px solid black;*/
+  border-radius: 50%;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-#left {
-  background-image: url("img/left.png");
-  background-size: 100% 100%;
+.pokename {
+  font-weight: normal;
+}
+
+.pokemoninfosec {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-start:2;
+  grid-column-end:4;
+/*  border: 1px solid pink;*/
+}
+
+.pokemoninfosec div {
+/*  border: 1px solid none;*/
+}
+.pokeinfo{
+  height: 65px;
+  margin: 50px;
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: black;
+  font-weight: bold;
+ 
+  border-radius: 30%;
+  color: red;
+
+
 }
