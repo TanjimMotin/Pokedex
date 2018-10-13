@@ -29,7 +29,7 @@ function threePokemon(idnum) {
       pokeAttack.innerText = "Attack: " + response.stats[4].base_stat;
       pokeDefense.innerText = "Defense: " + response.stats[3].base_stat;
 
-      /*var abil = "";
+      var abil = "";
 
       for(let i = 0; i < response.abilities.length; i++) {
         if(i == response.abilities.length-1) {
@@ -40,7 +40,7 @@ function threePokemon(idnum) {
         }
       }
 
-      pokeAbilities.innerText = "Abilities: " + abil;*/
+      pokeAbilities.innerText = "Abilities: " + abil;
     }
   })
 }

@@ -8,15 +8,15 @@ body{
   background-image: url(background.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  display: flex;
 }
 
 .wrapper {
-
+  
   height: 100vh;
   width: 100vw;
   display: grid;
-/*
-  grid-template-rows: 0.2fr 1fr 1fr;*/
+
   grid-template-columns: 1fr 1fr  1fr ;
 }
 
@@ -24,7 +24,7 @@ body{
   grid-column-start: 1;
   grid-column-end: 4;
   border: 5px solid black;
-  background-color: red;
+  background-color: black;
 }
 
 .trainersec {
@@ -100,6 +100,23 @@ body{
 .pokemoninfosec div {
 /*  border: 1px solid none;*/
 }
+#pokeabilities{
+
+ height: 85px;
+  margin: 50px;
+  width: 215px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: black;
+  font-weight: bold;
+ 
+  border-radius: 30%;
+  color: red;
+
+
+}
 .pokeinfo{
   height: 65px;
   margin: 50px;
@@ -114,5 +131,27 @@ body{
   border-radius: 30%;
   color: red;
 
+
+}
+@media only screen and (max-width: 480px) {
+body{
+
+}
+
+
+
+}
+
+@media all and (min-width: 481px) and (max-width: 768px){
+ body{
+
+ }
+ 
+ 
+}
+  @media all and (min-width: 768px) and (max-width: 991px){
+body{
+
+}
 
 }
